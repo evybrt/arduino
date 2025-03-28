@@ -1,0 +1,60 @@
+int green = 13;
+int yellow = 12;
+int blue = 11;
+
+
+int blue1 = 1;
+int blue2 = 3;
+int arrumando = 1;
+
+int terminal = 8;
+int stade;
+
+void setup() {
+  pinMode(terminal, INPUT);
+
+  pinMode(blue, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(green, OUTPUT);
+
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  stade = digitalRead(terminal);
+
+  if (stade == 0){
+    digitalWrite(yellow, 1);
+    digitalWrite(arrumando, 1);
+    delay(1000); 
+
+    digitalWrite(yellow, 0);
+    digitalWrite(arrumando, 0);
+    delay(1000); 
+  }
+  else{
+    
+    digitalWrite(blue1, 0);
+    digitalWrite(blue2, 0);
+    digitalWrite(arrumando, 1);
+
+    digitalWrite(blue, 1);
+    digitalWrite(green, 0);
+    digitalWrite(yellow, 0);
+    delay(1000); 
+
+    digitalWrite(arrumando, 0);
+    digitalWrite(blue, 0);
+    digitalWrite(yellow, 1);
+    digitalWrite(green, 0);
+    delay(1000); 
+
+    digitalWrite(arrumando, 1);
+    digitalWrite(blue, 0);
+    digitalWrite(yellow, 0);
+    digitalWrite(green, 1);
+    delay(1000); 
+    digitalWrite(arrumando, 0);
+  }
+}
+
